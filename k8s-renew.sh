@@ -1,6 +1,6 @@
 #!/bin/bash
 certLocation=/etc/kubernetes/pki/apiserver.crt
-daysToCheckBeforeExpire=10
+daysToCheckBeforeExpire=$1
 endTime=`echo "$daysToCheckBeforeExpire*86400" | bc`
 
 if openssl x509 -checkend $endTime -noout -in $certLocation
